@@ -5,54 +5,48 @@ weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 6: Xây dựng Glue ETL Job
+
+**Thời gian:** 06/04/2026 - 10/04/2026
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu AWS Glue ETL Job và cách xử lý dữ liệu bằng PySpark.
+* Xây dựng script ETL để chuyển dữ liệu từ Raw Zone sang Curated Zone.
+* Làm sạch, chuẩn hóa và chuyển đổi kiểu dữ liệu cho events, products và transactions.
+* Validate dữ liệu transaction lỗi.
+* Ghi dữ liệu đầu ra dưới định dạng Parquet và partition theo thời gian.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu AWS Glue ETL Job và PySpark DataFrame.<br>- Tìm hiểu cách đọc CSV từ S3 trong Glue script.<br>- Cấu hình Glue Job, IAM Role và job parameter.<br>- Tạo khung script ETL ban đầu. | 06/04/2026 | 06/04/2026 | AWS Glue ETL Documentation |
+| Thứ 3 | - Viết logic xử lý bảng events.<br>- Parse event_timestamp, cast kiểu dữ liệu, xử lý product_id dạng float/string.<br>- Chuẩn hóa device_type và traffic_source.<br>- Tạo các cột event_date, event_hour, year, month, day. | 07/04/2026 | 07/04/2026 | PySpark Documentation |
+| Thứ 4 | - Viết logic xử lý bảng products.<br>- Cast product_id, base_price và launch_date.<br>- Chuyển is_premium sang boolean.<br>- Ghi dim_products ra Parquet và kiểm tra output. | 08/04/2026 | 08/04/2026 | PySpark Documentation |
+| Thứ 5 | - Viết logic xử lý bảng transactions.<br>- Parse transaction_timestamp, cast quantity, discount_applied, gross_revenue.<br>- Xây dựng điều kiện validate transaction lỗi.<br>- Tách valid_transactions và invalid_transactions. | 09/04/2026 | 09/04/2026 | AWS Glue, PySpark |
+| Thứ 6 | - Chạy thử Glue ETL Job.<br>- Kiểm tra trạng thái job run, output S3 và CloudWatch Logs.<br>- Debug lỗi nếu có trong quá trình đọc/ghi dữ liệu.<br>- Ghi chú kết quả ETL và cập nhật report. | 10/04/2026 | 10/04/2026 | AWS Glue Console, CloudWatch |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được cách AWS Glue ETL Job hoạt động trong pipeline xử lý dữ liệu.
+* Tạo được Glue ETL Job đọc dữ liệu CSV từ S3 Raw Zone.
+* Xử lý được bảng events với các bước:
+* Parse event_timestamp.
+* Cast kiểu dữ liệu.
+* Chuẩn hóa device_type.
+* Chuẩn hóa traffic_source.
+* Tạo các cột event_date, event_hour, year, month, day.
+* Xử lý được bảng products với các bước:
+* Cast product_id và base_price.
+* Parse launch_date.
+* Chuyển is_premium sang boolean.
+* Xử lý được bảng transactions với các bước:
+* Parse transaction_timestamp.
+* Cast quantity, discount_applied và gross_revenue.
+* Chuyển refund flag sang boolean.
+* Validate transaction lỗi.
+* Tách được dữ liệu hợp lệ sang Curated Zone và dữ liệu lỗi sang Error Zone.
+* Ghi dữ liệu đầu ra ở định dạng Parquet.
+* Biết cách kiểm tra Glue Job Run, trạng thái chạy job và log lỗi trong CloudWatch.

@@ -5,55 +5,47 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 9: Kết nối QuickSight và xây dựng dashboard đầu tiên
+
+**Thời gian:** 27/04/2026 - 01/05/2026
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Amazon QuickSight và các thành phần chính như data source, dataset, analysis và dashboard.
+* Kết nối QuickSight với Athena.
+* Tạo dataset từ Athena Views.
+* Xây dựng dashboard Executive Overview.
+* Tạo calculated fields và filter controls theo thời gian.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu Amazon QuickSight, Data Source, Dataset, Analysis và Dashboard.<br>- Tìm hiểu Direct Query và SPICE.<br>- Kiểm tra region của QuickSight, Athena, Glue và S3.<br>- Chuẩn bị quyền truy cập QuickSight đến Athena/S3. | 27/04/2026 | 27/04/2026 | QuickSight Documentation |
+| Thứ 3 | - Cấu hình quyền QuickSight truy cập Athena và S3 bucket.<br>- Tạo Athena data source trong QuickSight.<br>- Validate connection.<br>- Tạo dataset từ view vw_executive_overview. | 28/04/2026 | 28/04/2026 | QuickSight Console |
+| Thứ 4 | - Tạo calculated fields cho transaction_year, transaction_quarter và transaction_month.<br>- Tạo filter controls cho Year, Quarter, Month.<br>- Kiểm tra hierarchy filter và show relevant values.<br>- Ghi chú cách tạo filter trong report. | 29/04/2026 | 29/04/2026 | QuickSight |
+| Thứ 5 | - Xây dựng Dashboard Executive Overview.<br>- Tạo KPI cards: Total Revenue, Total Orders, Avg Order Value, Refund Rate.<br>- Tạo Revenue Trend, Orders Trend và Refund Rate Trend.<br>- Format số liệu, title, currency và percent. | 30/04/2026 | 30/04/2026 | QuickSight |
+| Thứ 6 | - Kiểm tra dashboard Executive Overview với các filter thời gian.<br>- Ghi chú insight của từng visual.<br>- Chụp màn hình dashboard.<br>- Viết phần Dashboard 1 trong report. | 01/05/2026 | 01/05/2026 | QuickSight, Report Draft |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được vai trò của QuickSight trong việc trực quan hóa dữ liệu và xây dựng dashboard BI.
+* Phân biệt được Direct Query và SPICE ở mức cơ bản.
+* Cấp quyền để QuickSight truy cập Athena và S3 bucket.
+* Tạo thành công data source Athena trong QuickSight.
+* Tạo dataset từ view vw_executive_overview.
+* Tạo được các calculated fields:
+* transaction_year
+* transaction_quarter
+* transaction_month
+* Tạo được filter controls theo Year, Quarter và Month.
+* Xây dựng được Dashboard Executive Overview gồm:
+* Total Revenue
+* Total Orders
+* Average Order Value
+* Refund Rate
+* Revenue Trend
+* Orders Trend
+* Refund Rate Trend
+* Kiểm tra dashboard hoạt động đúng với các bộ lọc thời gian.

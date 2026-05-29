@@ -5,55 +5,42 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 4: Xây dựng S3 Data Lake và chuẩn bị dữ liệu raw
+
+**Thời gian:** 23/03/2026 - 27/03/2026
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thiết kế cấu trúc S3 Data Lake cho project.
+* Tạo S3 bucket và tổ chức các thư mục dữ liệu theo từng zone.
+* Thực hiện preprocessing dữ liệu ở local.
+* Upload dữ liệu raw lên Amazon S3.
+* Tạo IAM Role cần thiết để AWS Glue có thể truy cập dữ liệu trong S3.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu thiết kế S3 Data Lake.<br>- Lên cấu trúc thư mục raw, curated, error và athena-results.<br>- Xác định quy ước đặt tên bucket và prefix.<br>- Ghi chú vai trò của từng zone trong data lake. | 23/03/2026 | 23/03/2026 | AWS S3 Documentation |
+| Thứ 3 | - Tạo S3 bucket cho project.<br>- Tạo folder raw/events, raw/products, raw/transactions.<br>- Tạo folder curated, error và athena-results.<br>- Chụp màn hình cấu trúc bucket để đưa vào report. | 24/03/2026 | 24/03/2026 | AWS S3 Console |
+| Thứ 4 | - Thực hiện preprocessing local cho dataset.<br>- Đổi tên timestamp thành event_timestamp và transaction_timestamp.<br>- Kiểm tra header, encoding, số dòng và định dạng dữ liệu.<br>- Ghi chú các bước preprocessing local trong report. | 25/03/2026 | 25/03/2026 | Dataset project |
+| Thứ 5 | - Upload events.csv, products.csv và transactions.csv lên đúng S3 prefix.<br>- Kiểm tra file sau upload trong từng folder.<br>- Kiểm tra đường dẫn S3 URI của từng dataset.<br>- Chụp màn hình minh họa quá trình upload dữ liệu. | 26/03/2026 | 26/03/2026 | AWS S3 Console |
+| Thứ 6 | - Tạo IAM Role cho AWS Glue.<br>- Tìm hiểu quyền cần thiết để Glue truy cập S3 và Data Catalog.<br>- Attach policy phù hợp cho môi trường workshop.<br>- Ghi chú lưu ý về least privilege cho môi trường production. | 27/03/2026 | 27/03/2026 | AWS IAM Documentation |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo thành công S3 bucket phục vụ project workshop.
+* Thiết kế được cấu trúc data lake gồm:
+* raw/
+* curated/
+* error/
+* athena-results/
+* Tổ chức dữ liệu raw theo từng domain:
+* raw/events/
+* raw/products/
+* raw/transactions/
+* Thực hiện preprocessing local cho dữ liệu, bao gồm đổi tên cột timestamp để dễ xử lý trong ETL.
+* Upload thành công các file CSV lên đúng thư mục trong S3 Raw Zone.
+* Tạo được IAM Role cho AWS Glue với quyền truy cập S3 và Glue Data Catalog.
+* Hiểu được vai trò của S3 trong việc đóng vai trò là data lake trung tâm của toàn bộ pipeline.

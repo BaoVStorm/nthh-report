@@ -5,55 +5,40 @@ weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 11: Automation và Monitoring
+
+**Thời gian:** 11/05/2026 - 15/05/2026
 
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tự động hóa pipeline bằng AWS Glue Workflow và EventBridge Scheduler.
+* Cấu hình pipeline chạy theo thứ tự Raw Crawler → ETL Job → Curated Crawler.
+* Thiết lập cảnh báo lỗi bằng EventBridge Rules và SNS.
+* Kiểm tra log và trạng thái pipeline bằng CloudWatch.
+* Hoàn thiện phần automation và monitoring cho workshop.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu Glue Workflow và trigger.<br>- Thiết kế thứ tự chạy pipeline: Raw Crawler → ETL Job → Curated Crawler.<br>- Tạo Glue Workflow cho project.<br>- Ghi chú vai trò của workflow trong automation. | 11/05/2026 | 11/05/2026 | AWS Glue Workflow Documentation |
+| Thứ 3 | - Tạo các trigger trong Glue Workflow.<br>- Cấu hình trigger start raw crawler.<br>- Cấu hình trigger chạy ETL sau khi raw crawler thành công.<br>- Cấu hình trigger chạy curated crawler sau khi ETL thành công. | 12/05/2026 | 12/05/2026 | AWS Glue Console |
+| Thứ 4 | - Chạy thử Glue Workflow thủ công.<br>- Kiểm tra workflow history và từng node trong graph.<br>- Kiểm tra job run monitoring và CloudWatch Logs.<br>- Debug nếu workflow chưa chạy đúng thứ tự. | 13/05/2026 | 13/05/2026 | AWS Glue, CloudWatch |
+| Thứ 5 | - Tìm hiểu EventBridge Scheduler và cron expression.<br>- Tạo IAM Policy cho phép StartWorkflowRun.<br>- Tạo IAM Role cho EventBridge Scheduler.<br>- Tạo schedule tự động kích hoạt Glue Workflow. | 14/05/2026 | 14/05/2026 | EventBridge Scheduler |
+| Thứ 6 | - Tạo SNS Topic và email subscription.<br>- Tạo EventBridge Rules bắt lỗi Glue Crawler và Glue Job.<br>- Kiểm tra rule pattern cho FAILED, TIMEOUT, STOPPED.<br>- Viết phần Automation & Monitoring trong report. | 15/05/2026 | 15/05/2026 | SNS, EventBridge, CloudWatch |
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được vai trò của Glue Workflow trong việc điều phối các bước pipeline.
+* Tạo được Glue Workflow cho project.
+* Cấu hình được các trigger trong workflow:
+* Trigger chạy Raw Crawler.
+* Trigger chạy Glue ETL Job sau khi Raw Crawler thành công.
+* Trigger chạy Curated Crawler sau khi ETL Job thành công.
+* Chạy thử workflow thủ công và kiểm tra được workflow history.
+* Tạo được EventBridge Scheduler để tự động kích hoạt Glue Workflow theo lịch.
+* Tạo được IAM Role cho EventBridge Scheduler với quyền gọi StartWorkflowRun.
+* Tạo được SNS Topic và email subscription để nhận thông báo.
+* Tạo được EventBridge Rules để bắt lỗi Glue Job và Glue Crawler.
+* Biết cách kiểm tra lỗi pipeline thông qua CloudWatch Logs, Glue Job Run Monitoring và Workflow History.

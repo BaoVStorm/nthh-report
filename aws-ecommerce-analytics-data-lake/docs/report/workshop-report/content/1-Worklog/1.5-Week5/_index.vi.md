@@ -5,55 +5,43 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 5: Glue Data Catalog, Glue Crawler và Athena Raw Validation
+
+**Thời gian:** 30/03/2026 - 03/04/2026
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu AWS Glue Data Catalog và vai trò của metadata.
+* Tạo Glue Database cho dữ liệu raw.
+* Tạo và chạy Glue Crawler để tự động nhận diện schema dữ liệu trong S3.
+* Cấu hình Amazon Athena để query dữ liệu trên S3.
+* Thực hiện kiểm tra dữ liệu raw bằng các câu SQL cơ bản.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu AWS Glue Data Catalog, Glue Database và Glue Table.<br>- Tìm hiểu vai trò metadata trong việc query dữ liệu trên S3.<br>- Tạo Glue Database ecommerce_raw.<br>- Ghi chú khái niệm Data Catalog cho report. | 30/03/2026 | 30/03/2026 | AWS Glue Documentation |
+| Thứ 3 | - Tìm hiểu Glue Crawler và cách crawler nhận diện schema.<br>- Tạo crawler_ecommerce_raw cho S3 Raw Zone.<br>- Cấu hình S3 data source, IAM Role, target database và table prefix.<br>- Chụp màn hình cấu hình crawler. | 31/03/2026 | 31/03/2026 | AWS Glue Console |
+| Thứ 4 | - Chạy Raw Crawler.<br>- Kiểm tra trạng thái crawler sau khi chạy.<br>- Kiểm tra các bảng raw_events, raw_products, raw_transactions trong Glue Catalog.<br>- Kiểm tra schema từng bảng và ghi chú kết quả. | 01/04/2026 | 01/04/2026 | AWS Glue Console |
+| Thứ 5 | - Cấu hình Athena query result location trong S3.<br>- Query thử các bảng raw bằng SELECT LIMIT.<br>- Kiểm tra dữ liệu hiển thị, tên cột, kiểu dữ liệu và lỗi header.<br>- Chụp màn hình kết quả query. | 02/04/2026 | 02/04/2026 | Amazon Athena |
+| Thứ 6 | - Viết SQL validation cho raw data.<br>- Kiểm tra event_type, category, quantity, null value và abnormal value.<br>- Tổng hợp kết quả raw validation.<br>- Viết phần Glue Crawler và Athena Raw Validation vào report. | 03/04/2026 | 03/04/2026 | Amazon Athena |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được Glue Data Catalog là nơi lưu metadata để Athena có thể truy vấn dữ liệu trong S3.
+* Tạo thành công Glue Database cho raw data.
+* Tạo và chạy thành công Glue Crawler cho S3 Raw Zone.
+* Các bảng raw đã được tạo trong Glue Data Catalog, bao gồm:
+* raw_events
+* raw_products
+* raw_transactions
+* Cấu hình thành công Athena query result location trong S3.
+* Query thử dữ liệu raw bằng Athena và xác nhận dữ liệu có thể được đọc từ S3 thông qua Glue Catalog.
+* Viết được các câu SQL kiểm tra dữ liệu ban đầu như:
+* Đếm số lượng event theo event_type.
+* Đếm số lượng sản phẩm theo category.
+* Kiểm tra phân bố quantity trong transactions.
+* Kiểm tra null value và các giá trị bất thường.
+* Hoàn thành phần nền tảng để chuyển sang bước xây dựng ETL pipeline.

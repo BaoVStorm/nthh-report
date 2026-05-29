@@ -5,55 +5,46 @@ weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 7: Curated Data Catalog và validate dữ liệu sau ETL
+
+**Thời gian:** 13/04/2026 - 17/04/2026
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Kiểm tra dữ liệu đầu ra sau khi chạy Glue ETL Job.
+* Tạo Glue Data Catalog cho dữ liệu curated.
+* Tạo và chạy Glue Crawler cho dữ liệu Parquet trong Curated Zone.
+* Query và validate dữ liệu curated bằng Athena.
+* Kiểm tra chất lượng dữ liệu sau ETL trước khi tạo dashboard.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Kiểm tra output sau Glue ETL Job trong S3.<br>- Kiểm tra curated/fact_events, curated/dim_products, curated/fact_transactions.<br>- Kiểm tra error/transactions.<br>- Ghi chú cấu trúc output sau ETL. | 13/04/2026 | 13/04/2026 | AWS S3 Console |
+| Thứ 3 | - Tạo Glue Database ecommerce_curated.<br>- Tìm hiểu cách crawler đọc dữ liệu Parquet.<br>- Chuẩn bị cấu hình crawler cho Curated Zone.<br>- Ghi chú vai trò của curated database. | 14/04/2026 | 14/04/2026 | AWS Glue Console |
+| Thứ 4 | - Tạo crawler_ecommerce_curated cho S3 Curated Zone.<br>- Cấu hình S3 path, IAM Role, target database và table prefix.<br>- Chạy crawler và kiểm tra trạng thái.<br>- Chụp màn hình cấu hình crawler. | 15/04/2026 | 15/04/2026 | AWS Glue Crawler Documentation |
+| Thứ 5 | - Kiểm tra các bảng curated_fact_events, curated_dim_products, curated_fact_transactions.<br>- Kiểm tra schema, partition year/month/day và location trong S3.<br>- Query thử các bảng curated bằng Athena.<br>- Ghi chú kết quả crawl curated data. | 16/04/2026 | 16/04/2026 | AWS Glue, Athena |
+| Thứ 6 | - Validate curated data bằng Athena.<br>- Kiểm tra số dòng, null value, refund logic và transaction lỗi.<br>- Kiểm tra dữ liệu âm không hợp lệ đã bị loại khỏi curated layer.<br>- Viết phần Validate Curated Data trong report. | 17/04/2026 | 17/04/2026 | Amazon Athena |
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Kiểm tra được output sau ETL trong S3, bao gồm:
+* curated/fact_events/
+* curated/dim_products/
+* curated/fact_transactions/
+* error/transactions/
+* Tạo thành công Glue Database ecommerce_curated.
+* Tạo và chạy thành công Glue Crawler cho Curated Zone.
+* Các bảng curated đã được tạo trong Glue Data Catalog, bao gồm:
+* curated_fact_events
+* curated_dim_products
+* curated_fact_transactions
+* Kiểm tra được schema và partition của các bảng curated.
+* Query được dữ liệu Parquet bằng Athena.
+* Validate được các điều kiện dữ liệu quan trọng:
+* Không còn null ở các cột quan trọng trong fact_transactions.
+* Transaction có gross_revenue âm nhưng không phải refund đã được loại khỏi curated.
+* fact_events và fact_transactions được partition theo year/month/day.
+* Xác nhận dữ liệu curated đã đủ điều kiện để xây dựng semantic views và dashboard.

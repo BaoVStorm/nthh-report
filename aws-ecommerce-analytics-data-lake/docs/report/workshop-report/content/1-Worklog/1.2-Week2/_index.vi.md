@@ -5,55 +5,35 @@ weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Worklog Tuần 2: IAM, S3, EC2, VPC và CloudWatch cơ bản
+
+**Thời gian:** 09/03/2026 - 13/03/2026
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu các service nền tảng quan trọng của AWS.
+* Nắm được IAM để hiểu cách AWS quản lý quyền truy cập.
+* Tìm hiểu Amazon S3 để chuẩn bị cho việc xây dựng data lake.
+* Học các kiến thức cơ bản về EC2, VPC và CloudWatch.
+* Làm quen với AWS CLI và cách quản lý tài nguyên AWS ngoài giao diện Console.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu AWS IAM: User, Group, Role, Policy, Permission.<br>- Phân biệt permission policy và trust policy.<br>- Thực hành xem cấu trúc policy JSON cơ bản.<br>- Ghi chú vai trò của IAM trong các service như Glue, EventBridge và QuickSight. | 09/03/2026 | 09/03/2026 | AWS IAM Documentation |
+| Thứ 3 | - Tìm hiểu Amazon S3: bucket, object, prefix/folder, S3 URI.<br>- Thực hành tạo bucket thử nghiệm, upload file và tạo folder.<br>- Tìm hiểu bucket policy, public access block và storage class.<br>- Ghi chú cách S3 được dùng làm data lake trong workshop. | 10/03/2026 | 10/03/2026 | AWS S3 Documentation |
+| Thứ 4 | - Tìm hiểu Amazon EC2: instance, AMI, instance type, key pair, EBS.<br>- Tìm hiểu security group và cách SSH vào EC2.<br>- Thực hành tạo EC2 instance ở mức cơ bản nếu cần.<br>- Ghi chú vai trò của compute service trong AWS. | 11/03/2026 | 11/03/2026 | AWS EC2 Documentation |
+| Thứ 5 | - Tìm hiểu Amazon VPC: VPC, subnet, route table, Internet Gateway, NAT Gateway.<br>- Tìm hiểu security group và network ACL ở mức cơ bản.<br>- Xem mô hình network cơ bản trên AWS.<br>- Ghi chú các khái niệm network cần biết cho người mới học AWS. | 12/03/2026 | 12/03/2026 | AWS VPC Documentation |
+| Thứ 6 | - Tìm hiểu Amazon CloudWatch Logs, metric, log group và log stream.<br>- Tìm hiểu CloudTrail ở mức cơ bản để theo dõi lịch sử thao tác tài khoản.<br>- Tổng hợp kiến thức nền tảng AWS tuần 2.<br>- Viết phần kết quả đạt được và chuẩn bị chuyển sang nhóm Data Analytics. | 13/03/2026 | 13/03/2026 | CloudWatch Documentation |
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được vai trò của IAM trong việc quản lý người dùng, role, policy và permission.
+* Phân biệt được IAM User, IAM Role, IAM Policy, Permission Policy và Trust Policy.
+* Nắm được cách Amazon S3 lưu trữ dữ liệu bằng bucket, object và prefix/folder.
+* Hiểu cơ bản về EC2, AMI, instance type, key pair, EBS và security group.
+* Hiểu được các thành phần mạng cơ bản trong VPC như subnet, route table, Internet Gateway và security group.
+* Biết vai trò của CloudWatch trong việc theo dõi log, metric và hỗ trợ debug lỗi.
+* Có kiến thức nền tảng để tiếp tục học các service phục vụ Data Engineering như Glue, Athena và QuickSight.

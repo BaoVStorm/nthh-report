@@ -5,54 +5,50 @@ weight: 2
 chapter: false
 pre: " <b> 1.12 </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+## Worklog Tuần 12: Kiểm thử tổng thể, hoàn thiện workshop và viết report
+
+**Thời gian:** 18/05/2026 - 29/05/2026
 
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Kiểm thử toàn bộ pipeline từ raw data đến dashboard.
+* Rà soát lại các bước triển khai kỹ thuật.
+* Kiểm tra dashboard, automation, monitoring và alert.
+* Hoàn thiện báo cáo thực tập/workshop.
+* Tổng hợp worklog 12 tuần và chuẩn bị bản cuối cùng để nộp.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thời gian | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 18/05/2026 | - Kiểm thử lại pipeline từ S3 Raw Zone đến Glue Crawler Raw.<br>- Kiểm tra dữ liệu raw trong S3 và Glue Catalog.<br>- Query lại raw tables bằng Athena.<br>- Cập nhật hình ảnh minh họa cho phần raw data. | 18/05/2026 | 18/05/2026 | AWS Console, Athena |
+| 19/05/2026 | - Kiểm thử Glue ETL Job.<br>- Kiểm tra output curated và error zone.<br>- Đọc CloudWatch Logs để xác nhận job chạy ổn định.<br>- Cập nhật phần Glue ETL Job trong report. | 19/05/2026 | 19/05/2026 | AWS Glue, CloudWatch |
+| 20/05/2026 | - Kiểm thử Curated Crawler và Athena Views.<br>- Query lại các view phục vụ dashboard.<br>- Kiểm tra logic revenue, funnel, marketing, product và A/B Testing.<br>- Cập nhật phần Athena Views trong report. | 20/05/2026 | 20/05/2026 | Athena |
+| 21/05/2026 | - Kiểm tra Dashboard Executive Overview và Funnel Analytics.<br>- Rà soát filter year/quarter/month.<br>- Kiểm tra format currency, percent, number.<br>- Chụp lại hình dashboard sau khi hoàn thiện. | 21/05/2026 | 21/05/2026 | QuickSight |
+| 22/05/2026 | - Kiểm tra Dashboard Marketing, Product và A/B Testing.<br>- Rà soát insight cho từng biểu đồ.<br>- Kiểm tra layout dashboard và publish dashboard.<br>- Cập nhật phần dashboard trong report. | 22/05/2026 | 22/05/2026 | QuickSight |
+| 25/05/2026 | - Kiểm tra lại Glue Workflow và EventBridge Scheduler.<br>- Xác nhận pipeline có thể chạy theo lịch.<br>- Kiểm tra SNS email subscription và EventBridge alert rule.<br>- Cập nhật phần automation/monitoring trong report. | 25/05/2026 | 25/05/2026 | EventBridge, SNS |
+| 26/05/2026 | - Viết và chỉnh sửa phần tổng quan đề tài.<br>- Hoàn thiện phần problem statement, proposed solution và architecture.<br>- Rà soát mô tả các AWS services sử dụng.<br>- Chỉnh sửa câu chữ cho chuyên nghiệp hơn. | 26/05/2026 | 26/05/2026 | Report Draft |
+| 27/05/2026 | - Hoàn thiện phần triển khai kỹ thuật.<br>- Rà soát các bước S3, Glue, Athena, QuickSight, EventBridge.<br>- Kiểm tra thứ tự hình ảnh minh họa.<br>- Bổ sung kết quả đạt được sau từng giai đoạn. | 27/05/2026 | 27/05/2026 | Report Draft |
+| 28/05/2026 | - Kiểm tra và chỉnh sửa toàn bộ report.<br>- Bổ sung phần rủi ro, chi phí, kết quả kỳ vọng và hướng phát triển.<br>- Chuẩn hóa tên service AWS trong toàn bộ tài liệu. | 28/05/2026 | 28/05/2026 | Report Draft |
+| 29/05/2026 | - Hoàn thiện bản báo cáo cuối cùng.<br>- Tổng hợp worklog 12 tuần.<br>- Kiểm tra lại file nộp, hình ảnh, nội dung workshop và phần kết luận.<br>- Chuẩn bị bản cuối để nộp. | 29/05/2026 | 29/05/2026 | Final Report |
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Kiểm thử lại toàn bộ pipeline workshop từ đầu đến cuối:
+* Upload dữ liệu raw lên S3.
+* Crawl raw data bằng Glue Crawler.
+* Query và validate raw data bằng Athena.
+* Chạy Glue ETL Job.
+* Ghi dữ liệu curated dạng Parquet.
+* Tách dữ liệu lỗi sang Error Zone.
+* Crawl curated data bằng Glue Crawler.
+* Tạo và kiểm tra Athena Views.
+* Kết nối QuickSight với Athena.
+* Xây dựng và kiểm tra dashboard.
+* Tự động hóa pipeline bằng EventBridge Scheduler.
+* Cấu hình cảnh báo lỗi bằng EventBridge Rules và SNS.
+* Rà soát và chỉnh sửa các dashboard về filter, format số liệu, tiêu đề và insight.
+* Kiểm tra lại phần automation và monitoring để đảm bảo pipeline có thể chạy tự động và có cảnh báo khi lỗi.
+* Tổng hợp worklog 12 tuần.
+* Hoàn thiện bản báo cáo cuối cùng để nộp.
