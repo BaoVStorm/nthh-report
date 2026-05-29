@@ -1,0 +1,88 @@
+# ==========================================
+# Cấu hình OS & IDE (Hệ điều hành & Trình soạn thảo)
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# Python & Môi trường ảo (Virtual Environments)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Môi trường ảo (Virtual Env)
+venv/
+.venv/
+env/
+.env_python/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & Logs
+.tox/
+.coverage
+htmlcov/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.log
+
+# ==========================================
+# AWS & Serverless (Gói triển khai & Cache)
+# ==========================================
+.aws-sam/
+.serverless/
+*.zip
+samconfig.toml
+
+# ==========================================
+# Mật khẩu & Thông tin nhạy cảm (Security / Secrets)
+# KHÔNG BAO GIỜ PUSH CÁC FILE NÀY LÊN GITHUB
+# ==========================================
+.env
+.env.local
+.aws/
+credentials.json
+*secret*.json
+*.pem
+*.key
+
+# ==========================================
+# Dữ liệu Data Lake (Data & Artifacts)
+# ==========================================
+# Bỏ qua các file dữ liệu lớn sinh ra trong quá trình test
+*.parquet
+*.snappy
+*.csv
+# (Tùy chọn) Bỏ qua toàn bộ dữ liệu mock sinh ra tự động, chỉ giữ lại thư mục
+data/mock/*
+!data/mock/.gitkeep
