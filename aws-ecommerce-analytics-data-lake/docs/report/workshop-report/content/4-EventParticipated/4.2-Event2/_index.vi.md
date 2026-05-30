@@ -6,120 +6,67 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “Cloud Mastery #2”
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+* Giới thiệu kiến thức nền tảng về Kubernetes, Elixir trong DevOps và Infrastructure as Code trên AWS.
+* Giúp người tham dự hiểu cách triển khai, vận hành và tự động hóa hệ thống cloud hiện đại.
+* Chia sẻ các công cụ thực tế như Kubernetes, EKS, Elixir/OTP, Terraform, CloudFormation và AWS CDK.
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+* **Bao Huynh** - Junior Cloud Native Developer, Endava Vietnam
+* **Nguyen Ta Minh Triet** - SAP Developer Intern, Bosch GSV
+* **Thinh Nguyen** - FCAJ Cloud Engineer Trainee
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Architecting for the Cloud with Kubernetes
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+* Kubernetes giúp tự động hóa việc triển khai, mở rộng và quản lý container ở quy mô lớn.
+* Nội dung trình bày các thành phần chính như Control Plane, Worker Node, Pod, Deployment, ReplicaSet, ConfigMap, Secret và Job.
+* Phiên chia sẻ cũng giới thiệu EKS trên AWS và các công cụ hỗ trợ học tập, quản lý Kubernetes như Minikube, K3S, K3D, Helm và K9S.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Elixir in DevOps
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+* Elixir là ngôn ngữ functional chạy trên BEAM VM, phù hợp với các hệ thống cần concurrency cao và fault tolerance tốt.
+* Nội dung nổi bật gồm lightweight process, Supervisor, supervision tree và triết lý “Let It Crash”.
+* Các công cụ như Mix, Hex, Observer và ExUnit hỗ trợ quá trình build, quản lý package, monitoring và testing trong DevOps.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Infrastructure as Code with Terraform on AWS
 
-#### Domain-Driven Design (DDD)
-
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
-
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+* Infrastructure as Code giúp quản lý hạ tầng cloud bằng code thay vì thao tác thủ công trên AWS Console.
+* Nội dung giới thiệu các công cụ IaC như AWS CloudFormation, AWS CDK và Terraform.
+* Terraform được trình bày với các khái niệm như HCL, state file, multi-cloud support và các lệnh cơ bản như init, validate, plan, apply, destroy.
 
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
+* Hiểu được vai trò của Kubernetes trong việc triển khai ứng dụng containerized, hỗ trợ scaling, self-healing, rolling update và rollback.
+* Biết thêm cách Elixir/OTP hỗ trợ xây dựng hệ thống chịu lỗi, có khả năng phục hồi nhanh và xử lý nhiều tác vụ đồng thời.
+* Nhận ra tầm quan trọng của Infrastructure as Code trong việc giảm lỗi thủ công, tăng khả năng cộng tác và dễ tái triển khai hạ tầng.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+### Ứng Dụng Vào Học Tập Và Công Việc
 
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+* Có thể luyện tập Kubernetes bằng Minikube, K3S hoặc K3D trước khi triển khai lên môi trường AWS EKS.
+* Áp dụng tư duy fault tolerance và observability từ Elixir vào việc thiết kế hệ thống backend hoặc DevOps pipeline.
+* Sử dụng Terraform, CloudFormation hoặc CDK để tự động hóa việc tạo tài nguyên AWS trong các project cá nhân hoặc nhóm.
 
 ### Trải nghiệm trong event
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+* Sự kiện giúp tôi có cái nhìn tổng quan hơn về Cloud Native, DevOps và cách vận hành hệ thống hiện đại trên AWS.
+* Phần Kubernetes giúp tôi hiểu rõ hơn về quản lý container ở quy mô lớn, còn phần Elixir mang lại góc nhìn mới về hệ thống chịu lỗi và phục hồi nhanh.
+* Phần Infrastructure as Code giúp tôi nhận ra tầm quan trọng của việc tự động hóa hạ tầng bằng code thay vì thao tác thủ công.
 
 #### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+
+* Cloud Native không chỉ là triển khai ứng dụng lên cloud mà còn cần quan tâm đến khả năng mở rộng, độ tin cậy và tự động hóa.
+* Kubernetes, Elixir và Infrastructure as Code đều là các nền tảng quan trọng trong DevOps hiện đại.
+* Việc áp dụng IaC giúp hệ thống dễ quản lý, dễ review, dễ tái sử dụng và phù hợp hơn khi làm việc theo nhóm.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+
+![](/images/4-EventParticipated/4.2-Event2/1.png)
+
+> Tổng thể, sự kiện **Cloud Mastery #2** giúp tôi củng cố kiến thức về Kubernetes, Elixir trong DevOps và Infrastructure as Code trên AWS. Đây là những kiến thức nền tảng quan trọng để tiếp tục học tập và phát triển trong lĩnh vực Cloud/DevOps.
+
