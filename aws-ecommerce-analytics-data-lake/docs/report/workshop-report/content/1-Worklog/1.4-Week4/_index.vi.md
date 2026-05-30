@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-## Worklog Tuần 4: Xây dựng S3 Data Lake và chuẩn bị dữ liệu raw
+## Tuần 4: Xây dựng S3 Data Lake và chuẩn bị dữ liệu raw
 
 **Thời gian:** 23/03/2026 - 27/03/2026
 

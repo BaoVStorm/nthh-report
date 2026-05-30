@@ -1,57 +1,49 @@
 ---
+
 title: "Week 4 Worklog"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
----
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+----------------------
 
+## Week 4: Building the S3 Data Lake and Preparing Raw Data
+
+**Time:** 23/03/2026 - 27/03/2026
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Design the S3 Data Lake structure for the project.
+* Create an S3 bucket and organize data folders by zone.
+* Perform local preprocessing for the dataset.
+* Upload raw data to Amazon S3.
+* Create the necessary IAM Role so that AWS Glue can access data in S3.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day       | Task                                                                                                                                                                                                                                                                 | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                                                                                                     |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Monday    | - Learn about S3 Data Lake design.<br>- Plan the folder structure for raw, curated, error, and athena-results.<br>- Define naming conventions for the bucket and prefixes.<br>- Take notes on the role of each zone in the data lake.                                | 23/03/2026 | 23/03/2026      |                                                                                                                                                                                                                                                                                                                                        |
+| Tuesday   | - Create an S3 bucket for the project.<br>- Create folders raw/events, raw/products, and raw/transactions.<br>- Create curated, error, and athena-results folders.<br>- Take screenshots of the bucket structure to include in the report.                           | 24/03/2026 | 24/03/2026      |                                                                                                                                                                                                                                                                                                                                        |
+| Wednesday | - Perform local preprocessing for the dataset.<br>- Rename timestamp to event_timestamp and transaction_timestamp.<br>- Check headers, encoding, row counts, and data format.<br>- Take notes on the local preprocessing steps in the report.                        | 25/03/2026 | 25/03/2026      |                                                                                                                                                                                                                                                                                                                                        |
+| Thursday  | - Upload events.csv, products.csv, and transactions.csv to the correct S3 prefixes.<br>- Check the uploaded files in each folder.<br>- Check the S3 URI path of each dataset.<br>- Take screenshots to illustrate the data upload process.                           | 26/03/2026 | 26/03/2026      |                                                                                                                                                                                                                                                                                                                                        |
+| Friday    | - Create an IAM Role for AWS Glue.<br>- Learn about the permissions required for Glue to access S3 and the Data Catalog.<br>- Attach suitable policies for the workshop environment.<br>- Take notes on least privilege considerations for a production environment. | 27/03/2026 | 27/03/2026      | [Setting up IAM permissions for AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/set-up-iam.html)<br>[Step 2: Create an IAM role for AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html)<br>[How AWS Glue works with IAM](https://docs.aws.amazon.com/glue/latest/dg/security_iam_service-with-iam.html) |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully created an S3 bucket for the workshop project.
+* Designed the data lake structure, including:
 
-* Successfully created and configured an AWS Free Tier account.
+  * raw/
+  * curated/
+  * error/
+  * athena-results/
+* Organized raw data by domain:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  * raw/events/
+  * raw/products/
+  * raw/transactions/
+* Performed local preprocessing for the data, including renaming the timestamp columns to make ETL processing easier.
+* Successfully uploaded the CSV files to the correct folders in the S3 Raw Zone.
+* Created an IAM Role for AWS Glue with access to S3 and the Glue Data Catalog.
+* Understood the role of S3 as the central data lake for the entire pipeline.

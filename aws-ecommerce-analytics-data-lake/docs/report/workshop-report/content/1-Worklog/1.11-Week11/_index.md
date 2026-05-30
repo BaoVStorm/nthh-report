@@ -1,57 +1,46 @@
 ---
+
 title: "Week 11 Worklog"
 date: 2024-01-01
 weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
----
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+-----------------------
 
+## Week 11: Automation and Monitoring
+
+**Time:** 11/05/2026 - 15/05/2026
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Automate the pipeline using AWS Glue Workflow and EventBridge Scheduler.
+* Configure the pipeline to run in the order Raw Crawler → ETL Job → Curated Crawler.
+* Set up error alerts using EventBridge Rules and SNS.
+* Check pipeline logs and status using CloudWatch.
+* Complete the automation and monitoring section for the workshop.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day       | Task                                                                                                                                                                                                                                                | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Monday    | - Learn about Glue Workflow and triggers.<br>- Design the pipeline execution order: Raw Crawler → ETL Job → Curated Crawler.<br>- Create a Glue Workflow for the project.<br>- Take notes on the role of workflow in automation.                    | 11/05/2026 | 11/05/2026      | [Overview of workflows in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/workflows_overview.html)<br>[AWS Glue triggers](https://docs.aws.amazon.com/glue/latest/dg/about-triggers.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Tuesday   | - Create triggers in the Glue Workflow.<br>- Configure the trigger to start the raw crawler.<br>- Configure the trigger to run ETL after the raw crawler succeeds.<br>- Configure the trigger to run the curated crawler after ETL succeeds.        | 12/05/2026 | 12/05/2026      | [AWS Glue triggers](https://docs.aws.amazon.com/glue/latest/dg/about-triggers.html)<br>[Starting jobs and crawlers using triggers - AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html)<br>[Triggers API - AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Wednesday | - Test run the Glue Workflow manually.<br>- Check workflow history and each node in the graph.<br>- Check job run monitoring and CloudWatch Logs.<br>- Debug if the workflow does not run in the correct order.                                     | 13/05/2026 | 13/05/2026      | [AWS Glue job run statuses on the console](https://docs.aws.amazon.com/glue/latest/dg/view-job-runs.html)<br>[Monitoring AWS Glue using Amazon CloudWatch metrics](https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html)<br>[What is Amazon CloudWatch Logs?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)<br>[Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html)                                                                                                                                                                                                                                                                                                              |
+| Thursday  | - Learn about EventBridge Scheduler and cron expressions.<br>- Create an IAM Policy that allows StartWorkflowRun.<br>- Create an IAM Role for EventBridge Scheduler.<br>- Create a schedule to automatically trigger the Glue Workflow.             | 14/05/2026 | 14/05/2026      | [What is Amazon EventBridge Scheduler?](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)<br>[Schedule types in EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html)<br>[Amazon EventBridge Scheduler](https://docs.aws.amazon.com/eventbridge/latest/userguide/using-eventbridge-scheduler.html)<br>[StartWorkflowRun - AWS Glue API](https://docs.aws.amazon.com/glue/latest/webapi/API_StartWorkflowRun.html)<br>[Step 2: Create an IAM role for AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html)                                                                                                                                                                                                                                         |
+| Friday    | - Create an SNS Topic and email subscription.<br>- Create EventBridge Rules to capture Glue Crawler and Glue Job failures.<br>- Check rule patterns for FAILED, TIMEOUT, and STOPPED.<br>- Write the Automation & Monitoring section in the report. | 15/05/2026 | 15/05/2026      | [What is Amazon SNS?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)<br>[Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html)<br>[Creating a subscription to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html)<br>[Amazon SNS email subscription setup and management](https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html)<br>[AWS Glue events - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/ref/events-ref-glue.html)<br>[Creating Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html)<br>[Automating AWS Glue with EventBridge](https://docs.aws.amazon.com/glue/latest/dg/automating-awsglue-with-cloudwatch-events.html) |
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Understood the role of Glue Workflow in orchestrating pipeline steps.
+* Created a Glue Workflow for the project.
+* Configured triggers in the workflow:
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  * Trigger to run the Raw Crawler.
+  * Trigger to run the Glue ETL Job after the Raw Crawler succeeds.
+  * Trigger to run the Curated Crawler after the ETL Job succeeds.
+* Test ran the workflow manually and checked the workflow history.
+* Created EventBridge Scheduler to automatically trigger the Glue Workflow on a schedule.
+* Created an IAM Role for EventBridge Scheduler with permission to call StartWorkflowRun.
+* Created an SNS Topic and email subscription to receive notifications.
+* Created EventBridge Rules to capture Glue Job and Glue Crawler failures.
+* Learned how to check pipeline errors through CloudWatch Logs, Glue Job Run Monitoring, and Workflow History.

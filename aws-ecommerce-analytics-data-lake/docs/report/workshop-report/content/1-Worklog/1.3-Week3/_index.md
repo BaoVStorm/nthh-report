@@ -1,57 +1,47 @@
 ---
+
 title: "Week 3 Worklog"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
----
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+----------------------
 
+## Week 3: Defining the Workshop Topic and Exploring the Dataset
+
+**Time:** 16/03/2026 - 20/03/2026
 
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about Data Engineering, Data Lake, and ETL pipeline concepts.
+* Define a workshop topic that aligns with AWS Data Analytics.
+* Explore the e-commerce dataset used for the project.
+* Analyze the structure of the input data, including events, products, and transactions.
+* Design the overall architecture for the workshop.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day       | Task                                                                                                                                                                                                                                                                                                                                                                             | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Monday    | - Learn about Data Engineering, Data Lake, ETL pipeline, and batch processing.<br>- Learn about the concepts of Raw Zone, Curated Zone, and Error Zone.<br>- Define a project direction suitable for AWS Data Analytics.<br>- Take notes on services that can be used in the workshop.                                                                                           | 16/03/2026 | 16/03/2026      | [What is Data Engineering? - AWS](https://aws.amazon.com/what-is/data-engineering/)<br>[What is a Data Lake? - AWS](https://aws.amazon.com/what-is/data-lake/)<br>[What is ETL? - AWS](https://aws.amazon.com/what-is/etl/)<br>[What is Batch Processing? - AWS](https://aws.amazon.com/what-is/batch-processing/)<br>[AWS Analytics Services](https://aws.amazon.com/big-data/datalakes-and-analytics/)<br>[Recommended data layers for data lakes - AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/defining-bucket-names-data-lakes/data-layer-definitions.html)                                                                                                                                                                                                                                                                                                 |
+| Tuesday   | - Explore the Marketing & E-commerce Analytics dataset from Kaggle.<br>- Check the data files, including events.csv, products.csv, and transactions.csv.<br>- Read the schema, number of records, data types, and meaning of each table.<br>- Take notes on initial data issues.                                                                                                 | 17/03/2026 | 17/03/2026      | [Marketing & E-Commerce Analytics Dataset - Kaggle](https://www.kaggle.com/datasets/geethasagarbonthu/marketing-and-e-commerce-analytics-dataset)<br>[Working with CSV files - AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-csv-home.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Wednesday | - Analyze the events table: event_type, device_type, traffic_source, session_duration, and experiment_group.<br>- Analyze the products table: category, brand, base_price, launch_date, and is_premium.<br>- Analyze the transactions table: quantity, discount, gross_revenue, and refund_flag.<br>- Identify fact and dimension tables for the project.                        | 18/03/2026 | 18/03/2026      | [Marketing & E-Commerce Analytics Dataset - Kaggle](https://www.kaggle.com/datasets/geethasagarbonthu/marketing-and-e-commerce-analytics-dataset)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Thursday  | - Identify issues that need to be handled: null values, incorrect data types, inconsistent traffic_source values, and invalid transactions.<br>- Propose data processing logic for each table.<br>- Draft the expected output, including fact_events, dim_products, fact_transactions, and error/transactions.<br>- Take notes for the data understanding section of the report. | 19/03/2026 | 19/03/2026      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Friday    | - Design the overall workshop architecture.<br>- Define the pipeline: Kaggle Dataset → Local Preprocessing → S3 → Glue → Athena → QuickSight → EventBridge/SNS.<br>- Draw or document the overall data processing flow.<br>- Write the project description and workshop objectives.                                                                                              | 20/03/2026 | 20/03/2026      | [Guidance for Data Lakes on AWS](https://docs.aws.amazon.com/solutions/data-lakes-on-aws/)<br>[Building a Data Lake on AWS](https://pages.awscloud.com/rs/112-TZM-766/images/Building-a-data-lake-on-Amazon-Web-Services.pdf)<br>[AWS Analytics Services](https://aws.amazon.com/big-data/datalakes-and-analytics/)<br>[What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)<br>[What is AWS Glue?](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html)<br>[What is Amazon Athena?](https://docs.aws.amazon.com/athena/latest/ug/what-is.html)<br>[What is Amazon QuickSight?](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html)<br>[What is Amazon EventBridge Scheduler?](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)<br>[What is Amazon SNS?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) |
 
 ### Week 3 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Defined the workshop topic as E-commerce Analytics Data Lake on AWS.
+* Understood that the goal of the workshop is to build a serverless e-commerce data analytics pipeline on AWS.
+* Explored the dataset, which includes three main files:
 
-* Successfully created and configured an AWS Free Tier account.
+  * events.csv
+  * products.csv
+  * transactions.csv
+* Analyzed the meaning of each data table:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  * events is used to analyze user behavior.
+  * products is used to store product information.
+  * transactions is used to analyze transactions, revenue, and refunds.
+* Identified data issues that need to be handled, such as null values, incorrect data types, inconsistent traffic_source values, and invalid transactions.
+* Drafted the overall workshop architecture, including S3, Glue, Athena, QuickSight, EventBridge, SNS, CloudWatch, and IAM.
