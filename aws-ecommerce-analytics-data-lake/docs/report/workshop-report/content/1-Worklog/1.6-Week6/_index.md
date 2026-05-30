@@ -1,57 +1,39 @@
 ---
+
 title: "Week 6 Worklog"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
----
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+----------------------
 
+## Week 6: Building the Glue ETL Job
+
+**Time:** 06/04/2026 - 10/04/2026
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about AWS Glue ETL Job and how to process data using PySpark.
+* Build an ETL script to move data from the Raw Zone to the Curated Zone.
+* Clean, standardize, and convert data types for events, products, and transactions.
+* Validate invalid transaction data.
+* Write output data in Parquet format and partition it by time.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day       | Task                                                                                                                                                                                                                                                                    | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------: | --------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Monday    | - Learn about AWS Glue ETL Job and PySpark DataFrame.<br>- Learn how to read CSV files from S3 in a Glue script.<br>- Configure the Glue Job, IAM Role, and job parameters.<br>- Create the initial ETL script structure.                                               | 06/04/2026 |      06/04/2026 | [Programming Spark scripts - AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming.html)<br>[Program AWS Glue ETL scripts in PySpark](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python.html)<br>[AWS Glue Spark and PySpark jobs](https://docs.aws.amazon.com/glue/latest/dg/spark_and_pyspark.html)<br>[Using the CSV format in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-csv-home.html)                                                                                                                                                                                                                                                                                  |
+| Tuesday   | - Write the processing logic for the events table.<br>- Parse event_timestamp, cast data types, and handle product_id in float/string format.<br>- Standardize device_type and traffic_source.<br>- Create the event_date, event_hour, year, month, and day columns.    | 07/04/2026 |      07/04/2026 | [PySpark DataFrame API](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html)<br>[PySpark Column cast](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.Column.cast.html)<br>[PySpark to_timestamp](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.to_timestamp.html)<br>[PySpark to_date](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.to_date.html)<br>[PySpark date functions](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html#datetime-functions)                                                                                             |
+| Wednesday | - Write the processing logic for the products table.<br>- Cast product_id, base_price, and launch_date.<br>- Convert is_premium to boolean.<br>- Write dim_products to Parquet and check the output.                                                                    | 08/04/2026 |      08/04/2026 | [PySpark DataFrame API](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html)<br>[PySpark Column cast](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.Column.cast.html)<br>[PySpark to_date](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.to_date.html)<br>[PySpark when](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.when.html)<br>[Using the Parquet format in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-parquet-home.html)                                                                                                          |
+| Thursday  | - Write the processing logic for the transactions table.<br>- Parse transaction_timestamp and cast quantity, discount_applied, and gross_revenue.<br>- Build validation conditions for invalid transactions.<br>- Separate valid_transactions and invalid_transactions. | 09/04/2026 |      09/04/2026 | [PySpark DataFrame API](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html)<br>[PySpark Column cast](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.Column.cast.html)<br>[PySpark to_timestamp](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.to_timestamp.html)<br>[PySpark when](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.when.html)<br>[PySpark filter](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.filter.html)<br>[AWS Glue Data Quality](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality.html) |
+| Friday    | - Test run the Glue ETL Job.<br>- Check the job run status, S3 output, and CloudWatch Logs.<br>- Debug errors, if any, during the data read/write process.<br>- Record the ETL results and update the report.                                                           | 10/04/2026 |      10/04/2026 | [AWS Glue job run statuses on the console](https://docs.aws.amazon.com/glue/latest/dg/view-job-runs.html)<br>[Monitoring AWS Glue using Amazon CloudWatch metrics](https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html)<br>[What is Amazon CloudWatch Logs?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)<br>[Using the Parquet format in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-parquet-home.html)                                                                                                                                                                                                                                 |
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood how AWS Glue ETL Job works in the data processing pipeline.
+* Created a Glue ETL Job to read CSV data from the S3 Raw Zone.
+* Processed the events, products, and transactions tables with several basic processing steps.
+* Separated valid data into the Curated Zone and invalid data into the Error Zone.
+* Wrote output data in Parquet format.
+* Learned how to check Glue Job Runs, job run status, and error logs in CloudWatch.

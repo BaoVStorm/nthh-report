@@ -1,57 +1,40 @@
 ---
+
 title: "Week 2 Worklog"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
----
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+----------------------
 
+## Week 2: Basic IAM, S3, EC2, VPC, and CloudWatch
+
+**Time:** 09/03/2026 - 13/03/2026
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about important foundational AWS services.
+* Understand IAM to learn how AWS manages access permissions.
+* Learn about Amazon S3 to prepare for building a data lake.
+* Study the basics of EC2, VPC, and CloudWatch.
+* Become familiar with AWS CLI and how to manage AWS resources outside the Console interface.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day       | Task                                                                                                                                                                                                                                                                                                                 | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Monday    | - Learn about AWS IAM: User, Group, Role, Policy, and Permission.<br>- Distinguish between permission policy and trust policy.<br>- Practice viewing the basic JSON policy structure.<br>- Take notes on the role of IAM in services such as Glue, EventBridge, and QuickSight.                                      | 09/03/2026 | 09/03/2026      | [AWS IAM Documentation](https://docs.aws.amazon.com/iam/)<br>[What is AWS Identity and Access Management?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)<br>[IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html)<br>[IAM Groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html)<br>[IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)<br>[IAM Policies and Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)<br>[IAM Policy JSON Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html)                                                                                                                                                                                                                                                                                                   |
+| Tuesday   | - Learn about Amazon S3: bucket, object, prefix/folder, and S3 URI.<br>- Practice creating a test bucket, uploading files, and creating folders.<br>- Learn about bucket policy, public access block, and storage class.<br>- Take notes on how S3 is used as a data lake in the workshop.                           | 10/03/2026 | 10/03/2026      | [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)<br>[What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)<br>[Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)<br>[Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html)<br>[Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html)<br>[Bucket policies for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html)<br>[Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)<br>[Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html)                                                                           |
+| Wednesday | - Learn about Amazon EC2: instance, AMI, instance type, key pair, and EBS.<br>- Learn about security groups and how to SSH into an EC2 instance.<br>- Practice creating a basic EC2 instance if needed.<br>- Take notes on the role of compute services in AWS.                                                      | 11/03/2026 | 11/03/2026      | [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2/)<br>[What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)<br>[Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html)<br>[Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)<br>[Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)<br>[Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)<br>[Amazon EC2 security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html)<br>[Connect to your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html)                                                                                                                                                    |
+| Thursday  | - Learn about Amazon VPC: VPC, subnet, route table, Internet Gateway, and NAT Gateway.<br>- Learn the basics of security groups and network ACLs.<br>- Review a basic network model on AWS.<br>- Take notes on networking concepts that beginners should know when learning AWS.                                     | 12/03/2026 | 12/03/2026      | [Amazon VPC Documentation](https://docs.aws.amazon.com/vpc/)<br>[What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)<br>[VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html)<br>[Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)<br>[Internet gateways](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)<br>[NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html)<br>[Security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)<br>[Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)                                                                                                                                                                                                   |
+| Friday    | - Learn about Amazon CloudWatch Logs, metrics, log groups, and log streams.<br>- Learn the basics of CloudTrail to monitor account activity history.<br>- Summarize the foundational AWS knowledge learned in Week 2.<br>- Write the achievement section and prepare to move on to the Data Analytics service group. | 13/03/2026 | 13/03/2026      | [Amazon CloudWatch Documentation](https://docs.aws.amazon.com/cloudwatch/)<br>[What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)<br>[What is Amazon CloudWatch Logs?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)<br>[Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html)<br>[Using Amazon CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html)<br>[AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/)<br>[What is AWS CloudTrail?](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)<br>[Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) |
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood the role of IAM in managing users, roles, policies, and permissions.
+* Distinguished between IAM User, IAM Role, IAM Policy, Permission Policy, and Trust Policy.
+* Understood how Amazon S3 stores data using buckets, objects, and prefixes/folders.
+* Gained a basic understanding of EC2, AMI, instance type, key pair, EBS, and security group.
+* Understood the basic networking components in VPC, such as subnet, route table, Internet Gateway, and security group.
+* Learned the role of CloudWatch in monitoring logs, metrics, and supporting error debugging.
+* Built foundational knowledge to continue studying Data Engineering services such as Glue, Athena, and QuickSight.
