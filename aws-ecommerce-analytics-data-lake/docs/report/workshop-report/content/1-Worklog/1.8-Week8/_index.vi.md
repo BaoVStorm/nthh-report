@@ -5,55 +5,31 @@ weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+## Tuần 8: Athena Views và semantic layer
+
+**Thời gian:** 20/04/2026 - 24/04/2026
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu vai trò của semantic layer trong hệ thống phân tích dữ liệu.
+* Tạo các Athena Views phục vụ dashboard.
+* Viết SQL để tổng hợp dữ liệu business-ready.
+* Chuẩn bị dữ liệu cho các dashboard Executive, Funnel, Marketing, Product và A/B Testing.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Tìm hiểu semantic layer và vai trò của Athena Views.<br>- Xác định các dashboard cần xây dựng.<br>- Lập danh sách view cần tạo cho Executive, Funnel, Marketing, Product và A/B Testing.<br>- Chuẩn bị SQL template cho các view. | 20/04/2026 | 20/04/2026 | [Working with views - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/views.html)<br>[CREATE VIEW - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/create-view.html)<br>[What is Amazon Athena?](https://docs.aws.amazon.com/athena/latest/ug/what-is.html)<br>[Use AWS Glue Data Catalog to connect to your data - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/data-sources-glue.html) |
+| Thứ 3 | - Tạo view vw_executive_overview.<br>- Tính total_orders, total_units_sold, total_revenue, avg_order_value và refund_rate.<br>- Query kiểm tra kết quả view.<br>- Ghi chú ý nghĩa business của view. | 21/04/2026 | 21/04/2026 | [CREATE VIEW - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/create-view.html)<br>[SELECT - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/select.html)<br>[Aggregate functions - Trino](https://trino.io/docs/current/functions/aggregate.html)<br>[Conditional expressions - Trino](https://trino.io/docs/current/functions/conditional.html)<br>[Mathematical functions - Trino](https://trino.io/docs/current/functions/math.html) |
+| Thứ 4 | - Tạo view vw_daily_event_funnel và vw_funnel_summary.<br>- Tính views, clicks, add_to_carts, purchases và các conversion rate.<br>- Kiểm tra logic funnel bằng Athena.<br>- Ghi chú cách view này phục vụ Funnel Dashboard. | 22/04/2026 | 22/04/2026 | [CREATE VIEW - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/create-view.html)<br>[SELECT - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/select.html)<br>[Aggregate functions - Trino](https://trino.io/docs/current/functions/aggregate.html)<br>[Conditional expressions - Trino](https://trino.io/docs/current/functions/conditional.html)<br>[Conversion functions - Trino](https://trino.io/docs/current/functions/conversion.html) |
+| Thứ 5 | - Tạo view vw_traffic_source_performance và vw_campaign_performance.<br>- Tính conversion rate, bounce rate và campaign performance.<br>- Kiểm tra kết quả theo traffic_source và campaign_id.<br>- Ghi chú phần Marketing Analytics. | 23/04/2026 | 23/04/2026 | [CREATE VIEW - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/create-view.html)<br>[SELECT - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/select.html)<br>[Aggregate functions - Trino](https://trino.io/docs/current/functions/aggregate.html)<br>[Conditional expressions - Trino](https://trino.io/docs/current/functions/conditional.html)<br>[Comparison functions and operators - Trino](https://trino.io/docs/current/functions/comparison.html) |
+| Thứ 6 | - Tạo view vw_product_revenue và vw_ab_testing_summary.<br>- Join transaction với product để phân tích category/brand/premium.<br>- Tính chỉ số A/B Testing theo experiment_group.<br>- Tổng hợp danh sách views đã tạo và cập nhật report. | 24/04/2026 | 24/04/2026 | [CREATE VIEW - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/create-view.html)<br>[SELECT - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/select.html)<br>[Join queries - Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/joining-tables.html)<br>[Aggregate functions - Trino](https://trino.io/docs/current/functions/aggregate.html)<br>[Conditional expressions - Trino](https://trino.io/docs/current/functions/conditional.html) |
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được lý do cần tạo Athena Views thay vì để QuickSight truy vấn trực tiếp các bảng curated.
+* Tạo được các view phục vụ phân tích.
+* Tính các chỉ số quan trọng như total revenue, total orders, average order value, refund rate, conversion rate, bounce rate và funnel rate.
+* Kiểm tra được kết quả của từng view trước khi đưa vào QuickSight.
+* Hoàn thành lớp semantic layer phục vụ trực quan hóa dữ liệu.

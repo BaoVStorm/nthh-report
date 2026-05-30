@@ -1,125 +1,85 @@
 ---
-title: "Event 2"
+title: "Event 3"
 date: 2024-01-01
 weight: 1
 chapter: false
-pre: " <b> 4.2. </b> "
+pre: " <b> 4.3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “Weekly Meetup with the FCAJ Community”
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+* Chia sẻ các phương pháp học tập, phát triển bản thân và định hướng nghề nghiệp cho sinh viên trong cộng đồng FCAJ.
+* Giới thiệu cách sử dụng Prompt Engineering để cải thiện chất lượng đầu ra của LLM.
+* Cung cấp góc nhìn mới về BMAD Method, từ prompting tự do sang context engineering và quy trình phát triển theo hướng Agile AI.
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+* **Long Huynh** - Solution Architect, FCAJ
+* **Nguyen Tuan Thinh** - DevOps/Cloud Engineer, FCAJ
+* **Khang Nguyen** - Solution Architect, CloudKinetics
+* **Thao Nguyen** - GenAI Engineer, VIB
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Phương pháp học tập của bản thân
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+* Nội dung chia sẻ tập trung vào cách tạo động lực học tập bằng việc tăng dopamine một cách lành mạnh, ví dụ hoàn thành xong một nhiệm vụ sẽ tự thưởng cho bản thân.
+* Một phương pháp thực tế được nhắc đến là quy tắc 2 phút: nếu việc nào có thể làm trong vòng 2 phút thì nên làm ngay, tránh trì hoãn.
+* Cách học này giúp hình thành thói quen hành động nhanh, giảm tâm lý né tránh và duy trì năng lượng học tập đều đặn hơn.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Automated Prompt Engineering: Enhancing LLM Output Quality
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+* Phiên chia sẻ giải thích vì sao Prompt Engineering quan trọng: prompt chung chung thường tạo ra output chung chung, tốn token, tăng chi phí và làm giảm năng suất.
+* Một prompt tốt nên có các thành phần như role, instruction, context, input data, output format, examples và constraints.
+* Nội dung cũng giới thiệu các kỹ thuật nâng cao như Chain-of-Thought, Self-Consistency, Tree-of-Thoughts, RAG và Role Prompting để cải thiện chất lượng phản hồi của LLM.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Định hướng nghề nghiệp: Tại sao chưa đi làm?
 
-#### Domain-Driven Design (DDD)
+* Phần này giúp người tham dự nhìn lại định hướng nghề nghiệp thông qua 3 vòng tròn: passion, benefits và responsibility.
+* Work không chỉ mang lại salary mà còn đem đến experience, network, knowledge và growth.
+* Doanh nghiệp thường đánh giá ứng viên qua thái độ, trình độ, kinh nghiệm, trải nghiệm và tố chất.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### BMAD Method
 
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+* BMAD Method chuyển cách làm việc từ “một prompt làm tất cả” sang chia nhỏ task theo hướng Agile, có quy trình rõ ràng hơn.
+* Thay vì code mù và không có thiết kế trước, BMAD nhấn mạnh việc có PRD, system architecture và phân chia vai trò cho từng agent.
+* Phương pháp này giúp tách biệt ngữ cảnh cho từng agent, giảm rối khi dự án lớn và hỗ trợ scale theo độ phức tạp của domain.
 
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
+* Học tập hiệu quả không chỉ phụ thuộc vào ý chí mà còn cần phương pháp phù hợp để giảm trì hoãn và duy trì động lực.
+* Khi làm việc với LLM, prompt càng rõ ràng, có bối cảnh và ràng buộc cụ thể thì output càng dễ kiểm soát.
+* Định hướng nghề nghiệp nên cân bằng giữa điều mình thích, điều mang lại lợi ích và trách nhiệm cần thực hiện.
+* BMAD Method cho thấy AI không chỉ dùng để hỏi đáp đơn lẻ mà có thể trở thành một phần của quy trình phát triển phần mềm có tổ chức.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+### Ứng Dụng Vào Học Tập Và Công Việc
 
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+* Áp dụng quy tắc 2 phút và cơ chế tự thưởng để giảm trì hoãn khi học AWS, làm project hoặc viết report.
+* Sử dụng cấu trúc prompt gồm role, task, context, input, output format và constraints khi làm việc với ChatGPT hoặc các LLM khác.
+* Khi xây dựng project lớn, có thể chia nhỏ công việc thành các task rõ ràng thay vì yêu cầu AI xử lý toàn bộ trong một prompt.
+* Áp dụng tư duy BMAD để chuẩn bị PRD, thiết kế hệ thống và phân tách context trước khi bắt đầu coding.
 
 ### Trải nghiệm trong event
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+* Buổi meetup mang lại nhiều kiến thức thực tế, không chỉ về kỹ thuật mà còn về cách học tập, định hướng nghề nghiệp và sử dụng AI hiệu quả.
+* Nội dung Automated Prompt Engineering giúp tôi hiểu rõ hơn cách giao tiếp với AI để nhận được kết quả chính xác, có cấu trúc và tiết kiệm thời gian hơn.
+* Phần chia sẻ về nghề nghiệp và BMAD Method giúp tôi có thêm góc nhìn về việc phát triển bản thân, xây dựng project và chuẩn bị tốt hơn cho môi trường làm việc thực tế.
 
 #### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+
+* Muốn học tập bền vững cần xây dựng thói quen nhỏ, dễ thực hiện và có cơ chế tạo động lực phù hợp.
+* Prompt Engineering là kỹ năng quan trọng vì chất lượng input ảnh hưởng trực tiếp đến chất lượng output của AI.
+* Công việc không chỉ là tiền lương mà còn là cơ hội tích lũy kinh nghiệm, mở rộng network, tăng kiến thức và phát triển bản thân.
+* Khi dùng AI cho project lớn, cần chuyển từ prompting tự do sang context engineering và quy trình làm việc có cấu trúc.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+
+![](/images/4-EventParticipated/4.3-Event3/1.png)
+
+![](/images/4-EventParticipated/4.3-Event3/2.png)
+
+![](/images/4-EventParticipated/4.3-Event3/3.png)
+
+> Tổng thể, **Weekly Meetup with the FCAJ Community** là một buổi chia sẻ hữu ích, giúp tôi hiểu thêm về phương pháp học tập, cách sử dụng AI hiệu quả, định hướng nghề nghiệp và cách áp dụng BMAD Method vào phát triển phần mềm theo hướng có tổ chức hơn.
