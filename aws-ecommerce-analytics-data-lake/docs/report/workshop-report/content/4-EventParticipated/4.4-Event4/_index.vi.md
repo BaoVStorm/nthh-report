@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 4.4. </b> "
 ---
 
-
 # Bài thu hoạch “AWS First Cloud AI Journey Community Day 2026”
 
 ### Mục Đích Của Sự Kiện
